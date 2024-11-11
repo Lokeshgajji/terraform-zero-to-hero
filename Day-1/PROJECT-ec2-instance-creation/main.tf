@@ -14,7 +14,7 @@ data "aws_instances" "existing_instances" {
 resource "aws_instance" "existing_instances" {
   for_each = data.aws_instances.existing_instances.ids
 
-  # This is a test dummy resource that only exists to trigger state removal
+  # This is a dummy resource that only exists to trigger state removal
   # It does not perform any actions on the EC2 instance
   provisioner "local-exec" {
     command = "echo 'This resource is only used for state removal'"
